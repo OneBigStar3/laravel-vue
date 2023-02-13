@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        event(new Registered($user));
+        event(new Registered($user)); // Events may be used to alert other parts of your application that a given action has occurred, providing a great deal of flexibility and decoupling.
 
         Auth::login($user);
 
